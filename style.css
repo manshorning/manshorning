@@ -46,7 +46,7 @@ h1 {
     padding-bottom: 160px;
     padding-left: 190px;
     padding-right: 190px;
-    grid-template-columns: repeat(2, auto); /* 2 images per row */
+    grid-template-columns: repeat(2, auto); /* 2 images per row on larger screens */
     column-gap: 10px;
     row-gap: 80px;
     justify-items: center;
@@ -114,4 +114,13 @@ h1 {
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Adjust for true centering */
     margin-bottom: -200px; /* Adjust the margin from the bottom */
+}
+
+/* Mediequery för mindre skärmar (mobil) */
+@media (max-width: 768px) {
+    .image-container {
+        grid-template-columns: 1fr; /* 1 column for mobile screens */
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
