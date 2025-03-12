@@ -47,5 +47,24 @@
     <div class="marginalen">
         <p><span class= "info"> BA AT BECKMANS COLLEGE OF DESIGN STOCKHOLM</span></p>
     </div>
+    
+<script>
+    // Växla mellan bild och text när man klickar
+    const imageContainers = document.querySelectorAll('.image-text-container');
+
+    imageContainers.forEach(container => {
+        container.addEventListener('click', function() {
+            // Växla mellan att visa/dölja .image-text
+            const text = container.querySelector('.image-text');
+            text.style.display = (text.style.display === 'block' || text.style.display === '') ? 'none' : 'block';
+
+            // Växla mellan att visa/dölja bilden (om du vill att bilden ska bli dold när texten syns)
+            const image = container.querySelector('img');
+            image.style.display = (image.style.display === 'none') ? 'block' : 'none';
+        });
+    });
+</script>
+
+    
 </body>
 </html>

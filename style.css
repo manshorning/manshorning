@@ -60,14 +60,7 @@ h1 {
     height: 100%; /* Ensure each image container takes full space */
 }
 
-.image-container img {
-    width: 100%;
-    max-width: 450px;
-    height: auto;
-    display: block; /* Ensure image doesn't affect layout */
-    transition: opacity 0.3s ease-in-out; /* Optional smooth transition */
-}
-
+/* För att dölja texten från början och visa bilden */
 .image-text {
     display: none; /* Hide text by default */
     position: absolute; /* Position the text over the image */
@@ -85,8 +78,44 @@ h1 {
     z-index: 1; /* Ensure text is on top */
 }
 
+.image-container img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    display: block; /* Ensure image doesn't affect layout */
+    transition: opacity 0.3s ease-in-out; /* Optional smooth transition */
+}
+
+/* Hover-effekt för datorer */
 .image-text-container:hover .image-text {
     display: block; /* Show the text when hovering over the container */
+}
+
+/* Mediequery för mindre skärmar (mobil) */
+@media (max-width: 768px) {
+    .image-container {
+        grid-template-columns: 1fr; /* 1 column for mobile screens */
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/* CSS för att säkerställa att vi togglar mellan bild och text på mobil */
+.image-text-container img {
+    display: block;
+}
+
+.image-text-container .image-text {
+    display: none;
+}
+
+/* Om .image-text är synlig, döljer vi bilden */
+.image-text-container.show-text img {
+    display: none;
+}
+
+.image-text-container.show-text .image-text {
+    display: block;
 }
 
 .more-text {
@@ -114,13 +143,4 @@ h1 {
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Adjust for true centering */
     margin-bottom: -200px; /* Adjust the margin from the bottom */
-}
-
-/* Mediequery för mindre skärmar (mobil) */
-@media (max-width: 768px) {
-    .image-container {
-        grid-template-columns: 1fr; /* 1 column for mobile screens */
-        padding-left: 20px;
-        padding-right: 20px;
-    }
 }
