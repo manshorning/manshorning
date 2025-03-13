@@ -60,6 +60,11 @@ h1 {
     height: 100%; /* Ensure each image container takes full space */
 }
 
+.image-text-container img {
+    max-width: 100%; /* Ensure images scale within their container */
+    height: auto; /* Maintain aspect ratio */
+}
+
 .image-text {
     display: none; /* Hide text by default */
     position: absolute; /* Position the text over the image */
@@ -98,6 +103,11 @@ h1 {
     /* Dölja texten på mobil (se till att endast bilder visas) */
     .image-text {
         display: none; /* Texten ska inte visas på mobil */
+    }
+
+    .image-text-container img {
+        max-width: 100%; /* Ensure images don't stretch beyond their container */
+        height: auto; /* Maintain aspect ratio */
     }
 }
 
